@@ -20689,3 +20689,13 @@
 		video_cc_mvs1c_gdsc = [2f 73 6f 63 2f 71 63 6f 6d 2c 67 64 73 63 40 61 62 66 38 30 37 38 00];
 	};
 };
+
+/* The 5.15 OF range parser needs an explicit PCI bus type for this name.
+ * Keep all stock ranges, child nodes, power and interrupt properties. */
+/ {
+	soc {
+		qcom,pcie@1c00000 {
+			device_type = [70 63 69 00];
+		};
+	};
+};
