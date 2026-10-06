@@ -1,3 +1,6 @@
+ifeq ($(M2468_DTBS),1)
+include $(srctree)/$(src)/m2468.mk
+else
 
 # add-overlay defines the target with following naming convention:
 # <base>-<board>-dtbs = base.dtb board.dtbo
@@ -528,3 +531,5 @@ always-y        := $(dtb-y)
 subdir-y        := $(dts-dirs)
 subdir-y        += audio bt camera data display eSE eva graphics mm mmrm nfc video wlan
 clean-files     := *.dtb *.dtbo
+
+endif # M2468_DTBS

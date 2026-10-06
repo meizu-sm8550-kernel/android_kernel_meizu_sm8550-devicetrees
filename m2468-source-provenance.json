@@ -1,0 +1,9 @@
+{
+  "device": "Meizu 21 Note / M2468",
+  "rom_branch": "lineage-23.2",
+  "upstream": "https://github.com/LineageOS/android_kernel_qcom_sm8550-devicetrees.git",
+  "upstream_commit": "ab13cc3f28acfca873b7e3f0f3e3bb49d20812b9",
+  "source_only": true,
+  "local_module_inventory": 385,
+  "runtime_validated": false
+}
