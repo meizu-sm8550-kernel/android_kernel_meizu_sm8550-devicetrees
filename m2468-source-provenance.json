@@ -5,5 +5,10 @@
   "upstream_commit": "ab13cc3f28acfca873b7e3f0f3e3bb49d20812b9",
   "source_only": true,
   "local_module_inventory": 385,
-  "runtime_validated": false
+  "runtime_validated": false,
+  "device_codename": "m2468",
+  "supported_devices": [
+    "m2468"
+  ],
+  "organization": "meizu-sm8550-kernel"
 }

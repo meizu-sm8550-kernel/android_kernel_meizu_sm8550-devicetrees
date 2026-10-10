@@ -1,13 +1,15 @@
-# Meizu 21 Note (M2468) · LineageOS 23.2
+# m2468 设备树源码
 
-M2468 DTB0 和五项 DTBO 的兼容重建源码，以及仅选择 M2468 的 Kbuild 入口。
+M2468 的一个 DTB 和五个有序 DTBO，以及仅选择该设备的 Kbuild 入口。DTS 由原厂硬件描述的属性字节重建，不是魅族原始维护源码。
 
-本仓库由 [kernel_manifest](https://github.com/meizu-sm8550-kernel/kernel_manifest) 一并拉取，分支 `lineage-23.2`。请使用其中的固定 manifest 和构建说明；不需要另套本地接入补丁。
+本仓库属于 **meizu-sm8550-kernel**，**当前仅支持 m2468（魅族 21 Note）**。组织与内核仓库名称中的 `sm8550` 表示平台，不表示支持其它魅族 SM8550 设备；M2481（魅族 21 Pro）也不在本适配范围内。
 
-上游：[来源](https://github.com/LineageOS/android_kernel_qcom_sm8550-devicetrees.git)，基线提交 `ab13cc3f28acfca873b7e3f0f3e3bb49d20812b9`。保留原有许可证及版权声明。这里的 ROM 基准是 LineageOS 23.2；SoC内核基准仍是 Android 13 / Linux 5.15，二者不是同一版本号。
+发布分支为 `lineage-23.2`。使用 [kernel_manifest](https://github.com/meizu-sm8550-kernel/kernel_manifest) 同步四个配套源码仓库，并按其中的构建说明编译。清单跟随该分支，`revisions.lock.json` 只记录发布版本。
 
-本地已完成核心、385个模块及六份M2468 DT的构建/静态验证，基础模块CRC配套；尚未完成整套ROM构建或真机启动验证。不得混用stock ko、伪造CRC/vermagic或关闭模块检查。
+设备路径、配置和自有代码标识使用 `m2468` / `M2468`。提交采用“子系统前缀 + 首字母大写的动作描述”，每条提交聚焦一项修改，见 [提交约定](https://github.com/meizu-sm8550-kernel/kernel_manifest/blob/lineage-23.2/CONTRIBUTING.md)。原厂 DT 属性、固件名和运行时接口保持兼容。
 
-M2468局部HBM目前限部分亮屏模式；AOD、完整ready、手势/指纹、充电扩展与其它设备运行行为仍待验证。源码存在或编译通过不代表这些功能可用。
+上游基线为 `ab13cc3f28acfca873b7e3f0f3e3bb49d20812b9`，来源和许可信息见 [m2468-source-provenance.json](m2468-source-provenance.json)。保留上游许可证和版权声明。
 
-DTS按stock硬件描述的原始属性字节重建，不是原厂最初DTS；不包含live FDT。全literal格式避免旧dtc重复fixup及转义差异，保留原属性与五个overlay索引。实际Android DTBO入口在device仓库的dtbo.mk/dtbo.cfg。
+本次整理只调整提交历史、内部命名和文档。此前编译与设备反馈的范围见 [历史适配记录](docs/m2468-bringup-history.md)；未因本次整理新增整 ROM 编译或实机验证结论。各项主机回归不能代替外设运行验证。
+
+原厂属性字节、五个 overlay 索引及既有 RC0 PCI 类型修复保持不变。`M2468_DTBS=1` 选择本设备的源码入口。
